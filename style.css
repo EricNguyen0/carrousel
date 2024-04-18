@@ -1,10 +1,32 @@
 .carrousel {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border: 2px solid red;
+  transform: scale(0);
+  transition: transform 0.25s;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  border: 2px solid blue;
+  background-color: rgba(0, 0, 0, 0.1);
+  top: 25%;
+  left: 25%;
+  z-index: 1;
 }
 
-.bouton_ouvrir {
+.carrousel__x {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px 3px;
+  border: 1px solid black;
+}
+
+.carrousel__figure {
+  position: absolute;
+}
+
+.carrousel--ouvrir {
+  transform: scale(1);
+}
+
+.bouton__ouvrir {
   width: 200px;
 }/*# sourceMappingURL=style.css.map */
