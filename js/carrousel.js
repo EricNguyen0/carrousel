@@ -12,17 +12,54 @@
 
   let carrousel__figure = document.querySelector('.carrousel__figure')
   /* Création dynamique d'une image du carrousel */
-  let carrousel__img = document.createElement('img')
-  carrousel__img.classList.add('carrousel__img')
+
   /* récupère la première image de la galerie */
   // let galerie__img = galerie.querySelector('img')
   /* por créer une collection d'images de la galerie */
   let galerie__img = galerie.querySelectorAll('img')
   console.log( galerie__img)
+  let index = 0
   for (const elm of galerie__img)
   {
-      console.log(elm.src)
+      creation_image_carrousel(index, elm)
+      creer_radio_carrousel(index)
+      index = index + 1
   }
+
+  /*
+  Créer l'image du carrousel de la galerie
+  */
+ function creation_image_carrousel(index,elm){
+  console.log(elm.src)
+  let carrousel__img = document.createElement('img')
+  carrousel__img.src = elm.src
+  carrousel__img.classList.add('carrousel__img')
+  carrousel__img.dataset.index = index
+  carrousel__figure.appendChild(carrousel__img)
+ }
+  
+
+  /*
+  Créer d'un radio bouton du carrousel (le numéro)
+  */
+ function creer_radio_carrousel(index){
+  let carrousel__radio = document.createElement('input')
+  carrousel__radio.classList.add('carrousel__radio')
+  carrousel__radio.type = 'radio'
+  carrousel__radio.name = 'radio'
+  carrousel__radio.dataset.index = index
+
+  carrousel.appendChild(carrousel__radio);
+
+  carrousel__radio.addEventListener('click', function(){
+    let index = parseInt(this.dataset.index); // Get the selected image index
+    let carrousel__img = carrousel__figure.children; // Target the children of carrousel_radio
+    for (const img of carrousel__img) {
+        img.style.opacity = 0; // Use style.opacity to set opacity
+    }
+    carrousel__img[index].style.opacity = 1; // Set the opacity of the selected image to 1
+  });
+}
 
   /*
   console.log("première image de la galerie = " + galerie__img.src)
@@ -33,19 +70,15 @@
 */
 
 
-
-
-
-
-
 /* écouteur pour ouvrir la boîte modale */
-  bouton.addEventListener('mousedown', function(){
-      carrousel.classList.add('carrousel--ouvrir') // ouvrir le carrousel
-  })
+bouton.addEventListener('click', function(){
+  carrousel.classList.add('carrousel--ouvrir'); // ouvrir le carrousel
+});
+
 /* Écouteur pour fermer la boîte modale */
-  carrousel__x.addEventListener('mousedown', function(){
-      carrousel.classList.remove('carrousel--ouvrir') // fermer le carrousel
-  })
+carrousel__x.addEventListener('click', function(){
+  carrousel.classList.remove('carrousel--ouvrir'); // fermer le carrousel
+});
 
 
 
