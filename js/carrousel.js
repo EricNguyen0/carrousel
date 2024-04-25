@@ -44,6 +44,7 @@
   */
  function creer_radio_carrousel(index){
   let carrousel__radio = document.createElement('input')
+  
   carrousel__radio.classList.add('carrousel__radio')
   carrousel__radio.type = 'radio'
   carrousel__radio.name = 'radio'
@@ -60,6 +61,17 @@
     carrousel__img[index].style.opacity = 1; // Set the opacity of the selected image to 1
   });
 }
+
+
+
+
+
+
+
+
+
+
+
 
   /*
   console.log("première image de la galerie = " + galerie__img.src)
