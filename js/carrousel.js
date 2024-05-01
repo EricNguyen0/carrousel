@@ -62,16 +62,15 @@
   });
 }
 
+/* redimensionner les images du carrousel */
+function resize_carrousel(){
+  let carrousel__img = carrousel__figure.children
 
-
-
-
-
-
-
-
-
-
+  for (const img of carrousel__img) {
+    img.style.width = carrousel.clientWidth + 'px';
+    img.style.height = carrousel.clientHeight + 'px';
+  }
+}
 
   /*
   console.log("première image de la galerie = " + galerie__img.src)
@@ -95,3 +94,4 @@ carrousel__x.addEventListener('click', function(){
 
 
 })()
+
