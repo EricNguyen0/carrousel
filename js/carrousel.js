@@ -63,14 +63,27 @@
 }
 
 /* redimensionner les images du carrousel */
-function resize_carrousel(){
-  let carrousel__img = carrousel__figure.children
-
-  for (const img of carrousel__img) {
-    img.style.width = carrousel.clientWidth + 'px';
-    img.style.height = carrousel.clientHeight + 'px';
-  }
-}
+// Récupérer les dimensions de l'image
+const image = document.querySelector('.carrousel__img');
+const imageWidth = image.naturalWidth;
+const imageHeight = image.naturalHeight;
+ 
+// Récupérer les dimensions de la fenêtre du navigateur
+const windowWidth = window.innerWidth;
+const windowHeight = window.innerHeight;
+ 
+// Calculer les dimensions souhaitées de la boîte modale en maintenant le ratio de l'image
+const modalWidth = Math.min(imageWidth, windowWidth * 0.50); // Utilisez 50% de la largeur de la fenêtre si c'est plus petit que l'image
+const modalHeight = (modalWidth / imageWidth) * imageHeight;
+ 
+// Adapter la taille de la boîte modale en conséquence
+const modal = document.querySelector('.carrousel');
+modal.style.width = modalWidth + 'px';
+modal.style.height = modalHeight + 'px';
+ 
+// Centrer la boîte modale horizontalement et verticalement
+modal.style.top = (windowHeight - modalHeight) / 2 + 'px';
+modal.style.left = (windowWidth - modalWidth) / 2 + 'px';
 
   /*
   console.log("première image de la galerie = " + galerie__img.src)
@@ -79,6 +92,9 @@ function resize_carrousel(){
   carrousel__figure.appendChild(carrousel__img)
   console.log(carrousel__figure)
 */
+
+
+
 
 
 /* écouteur pour ouvrir la boîte modale */
