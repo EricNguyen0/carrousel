@@ -5,7 +5,7 @@
   position: fixed;  // division carrousel est une boite modale
   width: 100%;
   height: 100%;
-  border: 2px solid blue;
+  border: 5px solid var(--couleur-accueil);
   background-color: rgba(0, 0, 0, 0.1);
   top: 0;
   left: 0;
@@ -22,12 +22,13 @@
 .carrousel__x {
   position: absolute;
   right: 15;
-  top: 0;
+  top: 10;
   padding: 5px 3px;
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: white;
   z-index: 1;
-  
+  cursor: pointer;
+
 }
 .carrousel__figure{
   width: 100%;
@@ -35,6 +36,24 @@
   overflow: hidden;
   position: relative;
 
+  .carousel__prev, .carousel__next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .carousel__prev {
+    left: 10px;
+  }
+
+  .carousel__next {
+    right: 10px;
+  }
 }
 
 .carrousel__img{
@@ -53,4 +72,18 @@
 
 .bouton__ouvrir {
   width: 200px;
+}
+
+.carrousel__img {
+  transition: opacity 0.5s;
+}
+
+form.carrousel__action {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 10;
+  width: 100%;
+
 }
