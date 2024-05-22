@@ -135,6 +135,6 @@ function updateCarousel() {
 carrousel.style.width = galerie__img[index].naturalWidth + 'px';
 carrousel.style.height = galerie__img[index].naturalHeight + 'px';
 
+})();
 
-})()
 
